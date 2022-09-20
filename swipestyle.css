@@ -1,0 +1,134 @@
+/* This for for phrases. Not used in final version.*/
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
+*
+{
+  font-family: 'Source Sans Pro', sans-serif;
+  letter-spacing: 4px;
+  margin: 0;
+  padding: 0;
+}
+.swipercontainer
+{
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.swiper
+{
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide
+{
+  background-position: center;
+  background-size: cover;
+  width: 400px;
+  height: 600px;
+ -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #0006);
+}
+
+.swiper-3d .swiper-slide-shadow-left
+.swiper-3d .swiper-slide-shadow-right
+{
+  background-image: none;
+}
+
+.swipercontainer .card
+{
+  position: relative;
+  width: 80%;
+  height: 80%;
+  margin: 0 auto;
+  background: #333;
+  padding: 60px 40px;
+  overflow: hidden;
+}
+
+.swipercontainer .card .layer
+{
+  position: absolute;
+  top: calc(100% - 2px);
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  background: linear-gradient(#03a9f4, #e91ee3);
+  z-index: 1;
+  transition: 0.5s;
+}
+
+.swipercontainer .card:hover .layer
+{
+  top: 0;
+}
+
+.swipercontainer .card .content
+{
+  position: relative;
+  z-index: 2;
+}
+
+.swipercontainer .card .content p
+{
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 7%;
+}
+
+.logoName
+{
+  cursor: pointer;
+  width: 200px;
+}
+
+.navLinks
+{
+  margin-left: 500px;
+  list-style: none;
+}
+
+.navLinks li
+{
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+
+.navLinks li a
+{
+  transition: all 0.3s ease 0s;
+}
+
+.navLinks li a:hover
+{
+  color: #0088a9;
+}
+
+button
+{
+  padding: 9px 25px;
+  background-color: rgba(0,0,0,0);
+  border: 3px solid rgb(226, 98, 98);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+
+}

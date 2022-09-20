@@ -1,0 +1,426 @@
+/* This file just for referencing for debug purposes */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
+
+*
+{
+    font-family: 'Source Sans Pro', sans-serif;
+    letter-spacing: 4px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body
+{
+    /*These two statements below help remove horizontal and vertical scroll bars*/
+    overflow-x: show; /*horizontal scroll bar*/
+    overflow-y: hidden; /*vertical scroll bar*/
+}
+
+header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 7%;
+}
+
+.title
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    font-size: 3em;
+    /*Padding is the white space surrounding the object*/
+    padding: 50px 20%;
+}
+
+.map
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.logoName
+{
+    cursor: pointer;
+    width: 200px;
+}
+
+.navLinks
+{
+    margin-left: 500px;
+    list-style: none;
+}
+
+.navLinks li
+{
+    display: inline-block;
+    padding: 0px 10px;
+}
+
+
+.navLinks li a
+{
+    color:black;
+    transition: all 0.3s ease 0s;
+}
+
+.navLinks li a:hover
+{
+    color:black;
+}
+
+button
+{
+    padding: 9px 25px;
+    background-color: rgba(0,0,0,0);
+    border: 3px solid rgb(226, 98, 98);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+/*
+.nav
+{
+    width: 100%;
+    background: black;
+    overflow: auto;
+}
+
+
+ul
+{
+    padding: 0;
+    margin: 0 0 0 150px;
+    list-style: none;
+}
+
+li
+{
+float: left;
+}
+
+nav a
+{
+    width: 100px;
+    display: block;
+    padding: 20px 15px;
+    text-decoration: none;
+    font-family: Arial;
+    color: #f2f2f2;
+    text-align: center;
+}
+
+*/
+.biggerContainer
+{
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-image: url("../images/mountain\ and\ temple.jpg");
+}
+
+
+/*this is the flex container and inside it are its children called
+flex items*/
+/* . means its a class*/
+.container
+{
+    /*
+    Flex gives the container the ability to alter its items' width/height to
+    best fill the available space(mostly to accomodate to all kind of
+    display devices and screen sizes). A flex container expands items to fill
+    available free space or shrinks them to prevent overflow.
+    */
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    /*
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    */
+
+}
+
+.buttonContainer
+{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    /*establishes the direction flex items are places in the flex container*/
+    flex-direction: column;
+    justify-content: space-evenly;
+    /*This is the default behavior for how flex items are laid out
+    along the cross axis. */
+    align-items: center;
+    text-align: center;
+}
+
+.noticeBoard
+{
+    margin-left: 1100px;
+    margin-top: 380px;
+}
+
+.firstButton
+{
+    width: 300px;
+    height: 100px;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    transition: ease-out 0.3s;
+    font-size: 2rem;
+    outline: none;
+    border: 3px solid #42FBF2;
+    position: relative;
+    background: rgba(0,0,0,0.15);
+    z-index: 1;
+}
+
+.firstButton:hover
+{
+    color: #fff;
+    cursor: pointer;
+     color: #000;
+}
+
+/*before selector inserts something before the content of each selected element*/
+.firstButton:before
+{
+ transition: 0.5s all ease;
+ position: absolute;
+ top: 0;
+ left: 50%;
+ right: 50%;
+ bottom: 0;
+ opacity: 0;
+ content: "";
+
+ background-color: #42FBF2;
+}
+
+.firstButton:hover:before
+{
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    z-index: -1;
+}
+
+.secondButton
+{
+    width: 300px;
+    height: 100px;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    transition: ease-out 0.3s;
+    font-size: 2rem;
+    outline: none;
+    border: 3px solid #42FBF2;
+    background: rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 1;
+}
+
+.secondButton:hover
+{
+    color: #fff;
+    /*when you hover over it, it will turn into a cursor*/
+    cursor: pointer;
+     color: #000;
+}
+
+/*before selector inserts something before the content of each selected element*/
+.secondButton:before
+{
+ transition: 0.5s all ease;
+ position: absolute;
+ top: 0;
+ left: 50%;
+ right: 50%;
+ bottom: 0;
+ opacity: 0;
+ content: "";
+ background-color: #42FBF2;
+}
+
+.secondButton:hover:before
+{
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    z-index: -1;
+}
+
+
+
+
+.thirdButton
+{
+    width: 300px;
+    height: 100px;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    transition: ease-out 0.3s;
+    font-size: 2rem;
+    outline: none;
+    border: 3px solid #42FBF2;
+    background: rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 1;
+}
+
+.thirdButton:hover
+{
+    color: #fff;
+    cursor: pointer;
+     color: #000;
+}
+
+/*before selector inserts something before the content of each selected element*/
+.thirdButton:before
+{
+ transition: 0.5s all ease;
+ position: absolute;
+ top: 0;
+ left: 50%;
+ right: 50%;
+ bottom: 0;
+ opacity: 0;
+ content: "";
+ background-color: #42FBF2;
+}
+
+.thirdButton:hover:before
+{
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    z-index: -1;
+}
+
+
+
+.fourthButton
+{
+    width: 300px;
+    height: 100px;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    transition: ease-out 0.3s;
+    font-size: 1.7rem;
+    outline: none;
+    border: 3px solid #42FBF2;
+    background: rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 1;
+}
+
+.fourthButton:hover
+{
+    color: #fff;
+    cursor: pointer;
+     color: #000;
+}
+
+/*before selector inserts something before the content of each selected element*/
+.fourthButton:before
+{
+ transition: 0.5s all ease;
+ position: absolute;
+ top: 0;
+ left: 50%;
+ right: 50%;
+ bottom: 0;
+ opacity: 0;
+ content: "";
+ background-color: #42FBF2;
+}
+
+.fourthButton:hover:before
+{
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    z-index: -1;
+}
+
+#map{
+    height:100vh;
+    width: 100vw;
+}
+
+.marker {
+/*  background-image: url('http://maps.google.com/mapfiles/kml/paddle/1.png'); */
+  background-image: url('mapbox-icon.png');
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.mapboxgl-popup {
+  max-width: 400px;
+}
+
+.mapboxgl-popup-content
+{
+    text-align:left;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#contentBox
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1em;
+    width: 500px;
+    height: 250px;
+}
+
+#userInput
+{
+    width: 100%;
+    height: 150px;
+}
+
+
+#textArea
+{
+    width: 100%;
+    height: 200px;
+    letter-spacing: 1px;
+    font-size: 15px;
+    text-align: justify;
+    padding:2%;
+}
+
+/*Styling for the place name that pops up whenever the marker is clicked*/
+#placeName
+{
+    font-size: large;
+}

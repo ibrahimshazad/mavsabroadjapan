@@ -1,0 +1,1017 @@
+/* This is for all other features besides login,signup, weather and schedule */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
+
+*
+{
+    font-family: 'Source Sans Pro', sans-serif;
+    letter-spacing: 2px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body
+{
+    /*These two statements below help remove horizontal and vertical scroll bars*/
+  /*  overflow-x: hidden;*/
+  /*  overflow-y: hidden; */
+}
+
+header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 7%;
+}
+
+.title
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    font-size: 3em;
+    /*Padding is the white space surrounding the object*/
+    padding: 50px 20%;
+}
+
+.map
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.logoName
+{
+    cursor: pointer;
+    width: 200px;
+}
+
+.biggerContainer
+{
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-image: url("../images/mountain\ and\ temple.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/*this is the flex container and inside it are its children called
+flex items*/
+/* . means its a class*/
+.container
+{
+    /*
+    Flex gives the container the ability to alter its items' width/height to
+    best fill the available space(mostly to accomodate to all kind of
+    display devices and screen sizes). A flex container expands items to fill
+    available free space or shrinks them to prevent overflow.
+    */
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    /*establishes the direction flex items are places in the flex container*/
+    flex-direction: column;
+    justify-content: space-evenly;
+    /*This is the default behavior for how flex items are laid out
+    along the cross axis. */
+    align-items: center;
+    text-align: center;
+    min-height: 80vh;
+}
+
+.firstButton
+{
+    width: 300px;
+    height: 100px;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    transition: ease-out 0.3s;
+    font-size: 2rem;
+    outline: none;
+    border: 3px solid #42FBF2;
+    position: relative;
+    background: rgba(0,0,0,0.15);
+    z-index: 1;
+}
+
+.firstButton:hover
+{
+    color: #fff;
+    cursor: pointer;
+     color: #000;
+}
+
+/*before selector inserts something before the content of each selected element*/
+.firstButton:before
+{
+ transition: 0.5s all ease;
+ position: absolute;
+ top: 0;
+ left: 50%;
+ right: 50%;
+ bottom: 0;
+ opacity: 0;
+ content: "";
+
+ background-color: #42FBF2;
+}
+
+.firstButton:hover:before
+{
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    z-index: -1;
+}
+
+.secondButton
+{
+    width: 300px;
+    height: 100px;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    transition: ease-out 0.3s;
+    font-size: 2rem;
+    outline: none;
+    border: 3px solid #42FBF2;
+    background: rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 1;
+}
+
+.secondButton:hover
+{
+    color: #fff;
+    /*when you hover over it, it will turn into a cursor*/
+    cursor: pointer;
+     color: #000;
+}
+
+/*before selector inserts something before the content of each selected element*/
+.secondButton:before
+{
+ transition: 0.5s all ease;
+ position: absolute;
+ top: 0;
+ left: 50%;
+ right: 50%;
+ bottom: 0;
+ opacity: 0;
+ content: "";
+ background-color: #42FBF2;
+}
+
+.secondButton:hover:before
+{
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    z-index: -1;
+}
+
+
+
+
+.thirdButton
+{
+    width: 300px;
+    height: 100px;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    transition: ease-out 0.3s;
+    font-size: 2rem;
+    outline: none;
+    border: 3px solid #42FBF2;
+    background: rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 1;
+}
+
+.thirdButton:hover
+{
+    color: #fff;
+    cursor: pointer;
+     color: #000;
+}
+
+/*before selector inserts something before the content of each selected element*/
+.thirdButton:before
+{
+ transition: 0.5s all ease;
+ position: absolute;
+ top: 0;
+ left: 50%;
+ right: 50%;
+ bottom: 0;
+ opacity: 0;
+ content: "";
+ background-color: #42FBF2;
+}
+
+.thirdButton:hover:before
+{
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    z-index: -1;
+}
+
+
+
+.fourthButton
+{
+    width: 300px;
+    height: 100px;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    transition: ease-out 0.3s;
+    font-size: 1.7rem;
+    outline: none;
+    border: 3px solid #42FBF2;
+    background: rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 1;
+}
+
+.fourthButton:hover
+{
+    color: #fff;
+    cursor: pointer;
+     color: #000;
+}
+
+/*before selector inserts something before the content of each selected element*/
+.fourthButton:before
+{
+ transition: 0.5s all ease;
+ position: absolute;
+ top: 0;
+ left: 50%;
+ right: 50%;
+ bottom: 0;
+ opacity: 0;
+ content: "";
+ background-color: #42FBF2;
+}
+
+.fourthButton:hover:before
+{
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    z-index: -1;
+}
+
+#map{
+    height:100vh;
+    width: 100vw;
+}
+
+.marker {
+  background-image: url('http://maps.google.com/mapfiles/kml/paddle/1.png');
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#contentBox
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1em;
+    width: 500px;
+    height: 250px;
+}
+
+#userInput
+{
+    width: 100%;
+    height: 150px;
+}
+
+
+#textArea
+{
+    width: 100%;
+    height: 200px;
+    letter-spacing: 1px;
+    font-size: 15px;
+    text-align: justify;
+    padding:2%;
+}
+
+/*Styling for the place name that pops up whenever the marker is clicked*/
+#placeName
+{
+    font-size: large;
+}
+
+.sidebar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 260px;
+  background: #11101d;
+  z-index: 100;
+  transition: all 0.5s ease;
+}
+.sidebar.close{
+  width: 78px;
+}
+.sidebar .logo-details{
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.sidebar .logo-details i{
+  font-size: 30px;
+  color: #fff;
+  height: 50px;
+  min-width: 78px;
+  text-align: center;
+  line-height: 50px;
+}
+.sidebar .logo-details .logo_name{
+  font-size: 20px;
+  color: #fff;
+  font-weight: 600;
+  transition: 0.3s ease;
+  transition-delay: 0.1s;
+}
+.sidebar.close .logo-details .logo_name{
+  transition-delay: 0s;
+  opacity: 0;
+  pointer-events: none;
+}
+.sidebar .nav-links{
+  height: 100%;
+  padding: 30px 0 150px 0;
+  overflow: auto;
+}
+.sidebar.close .nav-links{
+  overflow: visible;
+}
+.sidebar .nav-links::-webkit-scrollbar{
+  display: none;
+}
+.sidebar .nav-links li{
+  position: relative;
+  list-style: none;
+  transition: all 0.4s ease;
+}
+.sidebar .nav-links li:hover{
+  background: #1d1b31;
+}
+.sidebar .nav-links li .iocn-link{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sidebar.close .nav-links li .iocn-link{
+  display: block
+}
+.sidebar .nav-links li i{
+  height: 50px;
+  min-width: 78px;
+  text-align: center;
+  line-height: 50px;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.sidebar .nav-links li.showMenu i.arrow{
+  transform: rotate(-180deg);
+}
+.sidebar.close .nav-links i.arrow{
+  display: none;
+}
+.sidebar .nav-links li a{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.sidebar .nav-links li a .link_name{
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  transition: all 0.4s ease;
+}
+.sidebar.close .nav-links li a .link_name{
+  opacity: 0;
+}
+.sidebar.close .nav-links li .sub{
+  pointer-events: none;
+}
+
+.sidebar .nav-links li .sub-menu{
+  padding: 6px 6px 14px 80px;
+  margin-top: -10px;
+  background: #1d1b31;
+  display: none;
+}
+.sidebar .nav-links li.showMenu .sub-menu{
+  display: block;
+}
+.sidebar .nav-links li .sub-menu a{
+  color: #fff;
+  font-size: 15px;
+  padding: 5px 0;
+  white-space: nowrap;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+.sidebar .nav-links li .sub-menu a:hover{
+  opacity: 1;
+}
+.sidebar.close .nav-links li .sub-menu{
+  position: absolute;
+  left: 100%;
+  top: -10px;
+  margin-top: 0;
+  padding: 10px 20px;
+  border-radius: 0 6px 6px 0;
+  opacity: 0;
+  display: block;
+  pointer-events: none;
+  transition: 0s;
+}
+.sidebar.close .nav-links li:hover .sub-menu{
+  top: 0;
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.4s ease;
+}
+.sidebar .nav-links li .sub-menu .link_name{
+  display: none;
+}
+.sidebar.close .nav-links li .sub-menu .link_name{
+  font-size: 18px;
+  opacity: 1;
+  display: block;
+}
+
+.sidebar .nav-links li .sub-menu.blank{
+  opacity: 1;
+  pointer-events: auto;
+  padding: 3px 20px 6px 16px;
+  opacity: 0;
+  pointer-events: none;
+}
+.sidebar .nav-links li:hover .sub-menu.blank{
+  top: 50%;
+  transform: translateY(-50%);
+}
+.sidebar .profile-details{
+  position: fixed;
+  bottom: 0;
+  width: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1d1b31;
+  padding: 12px 0;
+  transition: all 0.5s ease;
+}
+.sidebar.close .profile-details{
+  background: none;
+}
+.sidebar.close .profile-details{
+  width: 78px;
+}
+.sidebar .profile-details .profile-content{
+  display: flex;
+  align-items: center;
+}
+.sidebar .profile-details img{
+  height: 52px;
+  width: 52px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin: 0 14px 0 12px;
+  background: #1d1b31;
+  transition: all 0.5s ease;
+}
+.sidebar.close .profile-details img{
+  padding: 10px;
+}
+.sidebar .profile-details .profile_name,
+.sidebar .profile-details .job{
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.sidebar.close .profile-details i,
+.sidebar.close .profile-details .profile_name,
+.sidebar.close .profile-details .job{
+  display: none;
+}
+.sidebar .profile-details .job{
+  font-size: 12px;
+}
+.home-section{
+  position: relative;
+  background: #FFFFFF;
+  height: 10vh;
+  left: 260px;
+  width: calc(100% - 260px);
+  transition: all 0.5s ease;
+}
+.sidebar.close ~ .home-section{
+  left: 78px;
+  width: calc(100% - 78px);
+}
+.home-section .home-content{
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+.home-section .home-content .bx-menu,
+.home-section .home-content .text{
+  color: #11101d;
+  font-size: 35px;
+}
+.home-section .home-content .bx-menu{
+  margin: 0 15px;
+  cursor: pointer;
+}
+.home-section .home-content .text{
+  font-size: 26px;
+  font-weight: 600;
+}
+
+/*Styling of the outer box which contains the text field and the save button*/
+#biggerBox
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding-left: 62px;
+}
+/*Styling of the text field box. */
+#box
+{
+    width: 98%;
+    height: 100%;
+    font-weight: bold;
+    font-size: xx-large;
+    background: rgb(245, 244, 244);
+    padding: 15px;
+}
+
+.saveButton
+{
+    width: 300px;
+    height: 70px;
+    border: none;
+    color: black;
+    border-radius: 4px;
+    transition: ease-out 0.3s;
+    font-size: 2rem;
+    outline: none;
+    border: 3px solid lightgreen;
+    background: rgba(248, 244, 244, 0.15);
+    position: relative;
+    z-index: 1;
+]}
+
+.saveButton:hover
+{
+    color: #fff;
+    /*when you hover over it, it will turn into a cursor*/
+    cursor: pointer;
+    color: #000;
+}
+
+/*before selector inserts something before the content of each selected element*/
+.saveButton:before
+{
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: "";
+    background-color: lightgreen;
+}
+
+.saveButton:hover:before
+{
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    z-index: -1;
+}
+
+.impContactTitle
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    font-size: 3em;
+    /*Padding is the white space surrounding the object*/
+    padding-left: 75px;
+    margin-left: 10px;
+}
+
+.phraseimg
+{
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+  background-image: url("../images/street.jpg");
+}
+.annimg
+{
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+  background-image: url("../images/sakura.jpg");
+}
+.swipercontainer
+{
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.swiper
+{
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide
+{
+  background-position: center;
+  background-size: cover;
+  width: 400px;
+  height: 600px;
+ -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #0006);
+}
+
+.swiper-3d .swiper-slide-shadow-left
+.swiper-3d .swiper-slide-shadow-right
+{
+  background-image: none;
+}
+
+.swipercontainer .card
+{
+  position: relative;
+  width: 80%;
+  height: 80%;
+  margin: 0 auto;
+  background: #333;
+  padding: 60px 40px;
+  overflow: hidden;
+}
+
+/* .swipercontainer .card .layer
+{
+  position: absolute;
+  top: calc(100% - 2px);
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  background: linear-gradient(#03a9f4, #e91ee3);
+  z-index: 1;
+  transition: 0.5s;
+}
+
+.swipercontainer .card:hover .layer
+{
+  top: 0;
+} */
+
+.swipercontainer .card .content
+{
+  position: relative;
+  z-index: 2;
+}
+
+.swipercontainer .card .content p
+{
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+form input{
+float: left;
+width: 25%;
+border: 0;
+border-bottom: 1px solid #eee;
+padding: 10px;
+display: block;
+box-sizing: border-box;
+font-size: 14px;
+padding-left: 70px;
+margin-left: 10px;
+}
+
+form input:focus{
+outline: none;
+border-bottom: 3px solid #88236f;
+padding-bottom: 8px;
+transition: all ease 0.2s;
+}
+
+form:after{
+content: '';
+clear: both;
+display: block;
+}
+
+.phr{
+border: 0;
+background: #fff;
+border-radius: 10px;
+padding: 13px;
+width: 14%;
+box-shadow: -1px 0px 1px rgba(0,0,0,0.1);
+font-weight: bold;
+font-family: ubuntu;
+letter-spacing: 1px;
+color: #999;
+}
+
+.phr:hover
+{
+    color: blue;
+    /*when you hover over it, it will turn into a cursor*/
+    cursor: pointer;
+}
+
+
+@media (max-width: 600px) {
+  /* .sidebar.close .nav-links li .sub-menu{
+    display: none;
+  } */
+
+  .firstButton, .secondButton, .thirdButton, .fourthButton
+  {
+    width: 200px;
+    height: 90px;
+    border: none;
+    color: white;
+    border-radius: 3px;
+    transition: ease-out 0.3s;
+    font-size: 1.2rem;
+    outline: none;
+    border: 3px solid #42FBF2;
+    background: rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 1;
+  }
+
+  .container
+  {
+    height: 90%;
+    justify-content: space-evenly;
+    padding-left: 80px;
+  }
+
+  #box
+  {
+    font-size: 16px;
+  }
+
+  .saveButton
+  {
+    width: 200px;
+    font-size: 18px;
+  }
+
+  .impContactTitle
+  {
+    font-size: 26px;
+  }
+
+  form input
+  {
+    float: none;
+    width: 80%;
+  }
+
+  .phr
+  {
+    padding-left: 65px;
+    width: 60%;
+    color: #3cb371;
+  }
+
+  .swipercontainer
+  {
+    padding-left: 60px;
+  }
+
+  .title
+  {
+    font-size: 30px;
+    padding: 1em 0 1em 62px;
+  }
+}
+
+@media (max-width: 370px){
+  .logoName
+  {
+    width: 150px;
+  }
+}
+/* All of these styles were used for previous navbar,
+keeping here just for reference */
+
+/* .dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones
+  margin: 0; /* Important for vertical align on mobile phones
+}
+
+ .dropbtn:hover{
+  color:#0088a9;
+}
+/* Dropdown content (hidden by default)
+.dropdown-content {
+  display: none;
+  font-size: 14px;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+#logout:hover
+{
+  color: #0088a9;
+}
+
+#impContacts:hover
+{
+  color: #0088a9;
+} */
+
+/* .navLinks
+{
+    margin-left: 500px;
+    list-style: none;
+}
+
+.navLinks li
+{
+    display: inline-block;
+    padding: 0px 10px;
+}
+
+
+.navLinks li a
+{
+    color: black;
+    transition: all 0.3s ease 0s;
+}
+
+.navLinks li a:hover
+{
+    color: #0088a9;
+} */
+/*
+#impContacts
+{
+    padding: 9px 25px;
+    background-color: rgba(0,0,0,0);
+    border: 3px solid rgb(226, 98, 98);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+#logout
+{
+  background-color: rgba(0,0,0,0);
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+} */
+
+/*
+.nav
+{
+    width: 100%;
+    background: black;
+    overflow: auto;
+}
+
+
+ul
+{
+    padding: 0;
+    margin: 0 0 0 150px;
+    list-style: none;
+}
+
+li
+{
+float: left;
+}
+
+nav a
+{
+    width: 100px;
+    display: block;
+    padding: 20px 15px;
+    text-decoration: none;
+    font-family: Arial;
+    color: #f2f2f2;
+    text-align: center;
+}
+
+*/
