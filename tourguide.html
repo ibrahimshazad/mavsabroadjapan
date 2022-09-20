@@ -1,0 +1,105 @@
+<!-- Model design that may or may not be used for Trip Guide functionaility
+uses GoogleMaps -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tour Guide</title>
+  <link rel="stylesheet" href="src/css/style.css">
+  <link rel="manifest" href="/manifest.json">
+  <meta name = "apple-mobile-web-app-capable" content = 'yes'>
+  <meta name = "apple-mobile-web-app-status-bar-style" content = "black">
+  <meta name = "apple-mobile-web-app-title" content = "MavsAbroad Japan">
+  <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-57x57.png" sizes="57x57">
+  <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-60x60.png" sizes="60x60">
+  <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-72x72.png" sizes="72x72">
+  <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-76x76.png" sizes="76x76">
+  <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-114x114.png" sizes="114x114">
+  <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-120x120.png" sizes="120x120">
+  <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-144x144.png" sizes="144x144">
+  <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-152x152.png" sizes="152x152">
+  <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-180x180.png" sizes="180x180">
+  <meta name="msapplication-TileImage" content="/src/images/icons/app-icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#fff">
+  <meta name="theme-color" content="#3f51b5">
+</head>
+<body>
+  <header>
+  <img class="logoName" src="src/images/logoCropped.png" alt="">
+  <nav>
+    <ul class="navLinks">
+      <li><a class="button"><button>Important Contacts</button></a></li>
+    </ul>
+  </nav>
+  </header>
+
+  <div id = "map"></div>
+  <script>
+    function initMap(){
+      var options = {
+        zoom:10,
+        center:{lat:36.2048, lng: 138.2529}
+      //  center:{lat:32.7292, lng: -97.1152},
+      }
+      // New map
+      var map = new google.maps.Map(document.getElementById('map'), options);
+      var markers = [
+        { coords:{lat:35.3606, lng: 138.7274},
+          //coords:{lat:32.7292, lng: -97.1152},
+          iconImage:'http://maps.google.com/mapfiles/kml/paddle/1.png',
+          content: '<h3> Mount Fuji </h3>'
+          //content: '<h3> University of Texas at Arlington </h3>'
+        },
+        { coords:{lat:36.2048, lng: 138.2529},
+          //coords:{lat:32.7316, lng: -97.1127},
+          iconImage:'http://maps.google.com/mapfiles/kml/paddle/2.png',
+          content: '<h3> Tokyo tower </h3>'
+          //content: '<h3> Woolf Hall </h3>'
+        },
+        { coords:{lat:35.6852, lng: 139.7528},
+        //  coords:{lat:32.7309, lng: -97.1129},
+          iconImage:'http://maps.google.com/mapfiles/kml/paddle/3.png',
+          content: '<h3> Imperial Palace </h3>'
+          //content: '<h3> Preston Hall </h3>'
+        }]
+
+      function addMarker(props){
+          var marker = new google.maps.Marker({
+            position:props.coords,
+            map:map,
+            icon:props.iconImage
+          });
+
+          if(props.iconImage){
+
+            marker.setIcon(props.iconImage);
+          }
+
+          if(props.content){
+            var infoWindow = new google.maps.InfoWindow({
+              content: props.content
+            });
+
+            marker.addListener('click', function(){
+              infoWindow.open(map,marker);
+            })
+          }
+      }
+        for(var i = 0; i < markers.length; i++)
+      {
+        addMarker(markers[i]);
+      }
+
+
+    }
+    </script>
+  <script
+      src="https://maps.googleapis.com/maps/api/js?key=INSERTHERE&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+    <script src = "src/js/app.js"></script>
+
+</body>
+</html>

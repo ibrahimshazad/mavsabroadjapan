@@ -1,0 +1,552 @@
+ <!-- This page is for weather feature -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable= no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <title> Weather </title>
+    <link rel="manifest" href="./manifest.json">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <meta name = "apple-mobile-web-app-capable" content = 'yes'>
+    <meta name = "apple-mobile-web-app-status-bar-style" content = "black">
+    <meta name = "apple-mobile-web-app-title" content = "MavsAbroad Japan">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-57x57.png" sizes="57x57">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-60x60.png" sizes="60x60">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-72x72.png" sizes="72x72">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-76x76.png" sizes="76x76">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-114x114.png" sizes="114x114">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-120x120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-144x144.png" sizes="144x144">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-152x152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-180x180.png" sizes="180x180">
+    <meta name="msapplication-TileImage" content="/src/images/icons/app-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#fff">
+    <meta name="theme-color" content="#3f51b5">
+    <!-- Script should be loaded first before anything to call for API confirmation  -->
+    <script src="src/js/weather.js" defer></script>
+
+ <!-- No css file associated with this page. All styling here. -->
+  <style>
+  /* body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-image: url("src/images/mountain\ and\ clouds.jpg");
+    font-size: 120%;
+    background-size: cover;
+  } */
+  .biggerContainer
+  {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-image: url("src/images/mountain\ and\ clouds.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .weatherCard {
+    background: #585858;
+    color: white;
+    padding: 2em;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 420px;
+    margin: 1em;
+    position: absolute;
+  }
+
+  .search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .weatherCard button {
+    margin: 0.5em;
+    border-radius: 50%;
+    border: none;
+    height: 44px;
+    width: 44px;
+    outline: none;
+    background: linear-gradient(120deg,#2980b9, #8e44ad);
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+
+  input.search-bar {
+    border: none;
+    outline: none;
+    padding: 0.4em 1em;
+    border-radius: 24px;
+    background: linear-gradient(120deg,#2980b9, #8e44ad);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 105%;
+    width: calc(100% - 100px);
+  }
+
+  ::placeholder
+  {
+    color: white;
+  }
+
+  .weatherCard button:hover {
+    background-position: right;
+    background: linear-gradient(240deg,#2980b9, #8e44ad);
+    transition: .5s;
+    }
+
+  h1.temp {
+    margin: 0;
+    margin-bottom: 0.4em;
+  }
+
+  .flex {
+    display: flex;
+    align-items: center;
+  }
+
+  .description {
+    text-transform: capitalize;
+    margin-left: 8px;
+  }
+
+  .weather.loading {
+    visibility: hidden;
+    max-height: 20px;
+    position: relative;
+  }
+
+  .weather.loading:after {
+    visibility: visible;
+    content: "Loading...";
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 20px;
+  }
+
+  .logoName
+  {
+      cursor: pointer;
+      width: 200px;
+  }
+  .sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 260px;
+    background: #11101d;
+    z-index: 100;
+    transition: all 0.5s ease;
+  }
+  .sidebar.close{
+    width: 78px;
+  }
+  .sidebar .logo-details{
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .sidebar .logo-details i{
+    font-size: 30px;
+    color: #fff;
+    height: 50px;
+    min-width: 78px;
+    text-align: center;
+    line-height: 50px;
+  }
+  .sidebar .logo-details .logo_name{
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
+    transition: 0.3s ease;
+    transition-delay: 0.1s;
+  }
+  .sidebar.close .logo-details .logo_name{
+    transition-delay: 0s;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .sidebar .nav-links{
+    height: 100%;
+    padding: 30px 0 150px 0;
+    overflow: auto;
+  }
+  .sidebar.close .nav-links{
+    overflow: visible;
+  }
+  .sidebar .nav-links::-webkit-scrollbar{
+    display: none;
+  }
+  .sidebar .nav-links li{
+    position: relative;
+    list-style: none;
+    transition: all 0.4s ease;
+  }
+  .sidebar .nav-links li:hover{
+    background: #1d1b31;
+  }
+  .sidebar .nav-links li .iocn-link{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .sidebar.close .nav-links li .iocn-link{
+    display: block
+  }
+  .sidebar .nav-links li i{
+    height: 50px;
+    min-width: 78px;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .sidebar .nav-links li.showMenu i.arrow{
+    transform: rotate(-180deg);
+  }
+  .sidebar.close .nav-links i.arrow{
+    display: none;
+  }
+  .sidebar .nav-links li a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  .sidebar .nav-links li a .link_name{
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff;
+    transition: all 0.4s ease;
+  }
+  .sidebar.close .nav-links li a .link_name{
+    opacity: 0;
+  }
+  .sidebar.close .nav-links li .sub{
+    pointer-events: none;
+  }
+
+  .sidebar .nav-links li .sub-menu{
+    padding: 6px 6px 14px 80px;
+    margin-top: -10px;
+    background: #1d1b31;
+    display: none;
+  }
+  .sidebar .nav-links li.showMenu .sub-menu{
+    display: block;
+  }
+  .sidebar .nav-links li .sub-menu a{
+    color: #fff;
+    font-size: 15px;
+    padding: 5px 0;
+    white-space: nowrap;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+  }
+  .sidebar .nav-links li .sub-menu a:hover{
+    opacity: 1;
+  }
+  .sidebar.close .nav-links li .sub-menu{
+    position: absolute;
+    left: 100%;
+    top: -10px;
+    margin-top: 0;
+    padding: 10px 20px;
+    border-radius: 0 6px 6px 0;
+    opacity: 0;
+    display: block;
+    pointer-events: none;
+    transition: 0s;
+  }
+  .sidebar.close .nav-links li:hover .sub-menu{
+    top: 0;
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.4s ease;
+  }
+  .sidebar .nav-links li .sub-menu .link_name{
+    display: none;
+  }
+  .sidebar.close .nav-links li .sub-menu .link_name{
+    font-size: 18px;
+    opacity: 1;
+    display: block;
+  }
+
+  .sidebar .nav-links li .sub-menu.blank{
+    opacity: 1;
+    pointer-events: auto;
+    padding: 3px 20px 6px 16px;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .sidebar .nav-links li:hover .sub-menu.blank{
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .sidebar .profile-details{
+    position: fixed;
+    bottom: 0;
+    width: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #1d1b31;
+    padding: 12px 0;
+    transition: all 0.5s ease;
+  }
+  .sidebar.close .profile-details{
+    background: none;
+  }
+  .sidebar.close .profile-details{
+    width: 78px;
+  }
+  .sidebar .profile-details .profile-content{
+    display: flex;
+    align-items: center;
+  }
+  .sidebar .profile-details img{
+    height: 52px;
+    width: 52px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin: 0 14px 0 12px;
+    background: #1d1b31;
+    transition: all 0.5s ease;
+  }
+  .sidebar.close .profile-details img{
+    padding: 10px;
+  }
+  .sidebar .profile-details .profile_name,
+  .sidebar .profile-details .job{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .sidebar.close .profile-details i,
+  .sidebar.close .profile-details .profile_name,
+  .sidebar.close .profile-details .job{
+    display: none;
+  }
+  .sidebar .profile-details .job{
+    font-size: 12px;
+  }
+  .home-section{
+    position: relative;
+    background: #FFFFFF;
+    height: 10vh;
+    left: 260px;
+    width: calc(100% - 260px);
+    transition: all 0.5s ease;
+  }
+  .sidebar.close ~ .home-section{
+    left: 78px;
+    width: calc(100% - 78px);
+  }
+  .home-section .home-content{
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+  .home-section .home-content .bx-menu,
+  .home-section .home-content .text{
+    color: #11101d;
+    font-size: 35px;
+  }
+  .home-section .home-content .bx-menu{
+    margin: 0 15px;
+    cursor: pointer;
+  }
+  .home-section .home-content .text{
+    font-size: 26px;
+    font-weight: 600;
+  }
+ /* For screen size in mobile version */
+  @media (max-width: 600px) {
+    .weatherCard
+    {
+      margin-left: 75px;
+      margin-bottom: 200px;
+      width: 70%;
+    }
+    .biggerContainer
+    {
+      /* justify-content: flex-end; */
+      /* align-items: flex-start; */
+    }
+  }
+
+  </style>
+</head>
+
+<body>
+  <!-- Side navigation bar -->
+  <div class="sidebar close">
+    <div class="logo-details">
+      <i class='bx bxs-plane-alt'></i>
+      <span class="logo_name">MavsAbroad Japan</span>    </div>
+    <ul class="nav-links">
+      <li>
+        <a class = "sub" href="importantContacts.html">
+          <i class='bx bx-phone' ></i>
+          <span class="link_name">Important Contacts</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="importantContacts.html">Important Contacts</a></li>
+        </ul>
+      </li>
+      <!-- Resources to be implemented later. -->
+      <!-- <li>
+        <div class="iocn-link">
+          <a class = "sub" href="#">
+            <i class='bx bx-collection' ></i>
+            <span class="link_name">Resources</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Resources</a></li>
+          <li><a href="#">Site Visit Photos</a></li>
+          <li><a href="#">Locations Preview</a></li>
+          <li><a href="#">Other resources</a></li>
+        </ul>
+      </li> -->
+      <li>
+        <a class = "sub" href="weather.html">
+          <i class='bx bx-cloud' ></i>
+          <span class="link_name">Weather</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="weather.html">Weather</a></li>
+        </ul>
+      </li>
+      <li>
+        <a class = "sub" href="announcement.html">
+          <i class='bx bx-bell' ></i>
+          <span class="link_name">Announcement</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="announcement.html">Announcement</a></li>
+        </ul>
+      </li>
+      <li>
+        <a class = "sub" href="tripGuide.html">
+          <i class='bx bx-location-plus' ></i>
+          <span class="link_name">Trip Guide</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="tripGuide.html">Trip Guide</a></li>
+        </ul>
+      </li>
+      <li>
+        <a class = "sub" href="japanesePhrases.html">
+          <i class='bx bx-pencil' ></i>
+          <span class="link_name">Japanese Phrases</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="japanesePhrases.html">Japanese Phrases</a></li>
+        </ul>
+      </li>
+      <li>
+        <a class = "sub" href="currency.html">
+          <i class='bx bx-dollar-circle' ></i>
+          <span class="link_name">Currency Exchange</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="currency.html">Currency Exchange</a></li>
+        </ul>
+      </li>
+      <li>
+        <a class = "sub" href="schedule.html">
+          <i class='bx bx-calendar' ></i>
+          <span class="link_name">Schedule</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="schedule.html">Schedule</a></li>
+        </ul>
+      </li>
+      <li>
+    <div class="profile-details">
+      <div class="profile-content">
+        <!--<img src="image/profile.jpg" alt="profileImg">-->
+      </div>
+      <div class="name-job">
+        <div class="profile_name">Professor Aiken</div>
+        <div class="job">Admin</div>
+      </div>
+      <i class='bx bx-log-out' id = "logout"></i>
+    </div>
+  </li>
+</ul>
+  </div>
+  <section class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu' ></i>
+      <img class="logoName" src="src/images/logoCropped.png" onclick = "location.href = 'index.html'" alt="">
+    </div>
+  </section>
+  <!-- This is for weather section -->
+  <div class = "biggerContainer">
+  <div class="weatherCard">
+    <div class="search">
+      <input type="text" class="search-bar" placeholder="Search">
+      <button><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1.5em"
+          width="1.5em" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
+          </path>
+        </svg></button>
+    </div>
+    <div class="weather loading">
+      <h2 class="city">Weather in Denver</h2>
+      <h1 class="temp">51°C</h1>
+      <div class="flex">
+        <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
+        <div class="description">Cloudy</div>
+      </div>
+      <div class="humidity">Humidity: 60%</div>
+      <div class="wind">Wind speed: 6.2 km/h</div>
+    </div>
+  </div>
+</div>
+<script src = "src/js/app.js"></script>
+<script src = "src/js/feed.js"></script>
+<script type = "module" src = "src/js/auth.js"></script>
+<script>
+//Side bar navigation expansion script
+let arrow = document.querySelectorAll(".arrow");
+for (var i = 0; i < arrow.length; i++) {
+  arrow[i].addEventListener("click", (e)=>{
+ let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+ arrowParent.classList.toggle("showMenu");
+  });
+}
+let sidebar = document.querySelector(".sidebar");
+let sidebarBtn = document.querySelector(".bx-menu");
+console.log(sidebarBtn);
+sidebarBtn.addEventListener("click", ()=>{
+  sidebar.classList.toggle("close");
+});
+</script>
+
+</body>
+
+</html>

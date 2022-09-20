@@ -1,0 +1,83 @@
+
+<!--- This is for login page
+This page that only admin can interact with the webapp. No side navigation bar present --->
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="UTF-8">
+        <title>MavsAbroad Login Page</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="src/css/style1.css">
+        <link rel="manifest" href="./manifest.json">
+        <meta name = "apple-mobile-web-app-capable" content = 'yes'>
+        <meta name = "apple-mobile-web-app-status-bar-style" content = "black">
+        <meta name = "apple-mobile-web-app-title" content = "MavsAbroad Japan">
+        <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-57x57.png" sizes="57x57">
+        <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-60x60.png" sizes="60x60">
+        <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-72x72.png" sizes="72x72">
+        <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-76x76.png" sizes="76x76">
+        <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-114x114.png" sizes="114x114">
+        <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-120x120.png" sizes="120x120">
+        <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-144x144.png" sizes="144x144">
+        <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-152x152.png" sizes="152x152">
+        <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-180x180.png" sizes="180x180">
+        <meta name="msapplication-TileImage" content="/src/images/icons/app-icon-144x144.png">
+        <meta name="msapplication-TileColor" content="#fff">
+        <meta name="theme-color" content="#3f51b5">
+        <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+  </head>
+  <body>
+      <div class="bigField">
+        <h1>
+          <img class="logoName" src="src/images/logoCropped-removebg.png" onclick = "location.href = 'index.html'" alt="">
+        </h1>
+        <form id = "login-form" method="submit" action="index.html">
+          <label class = "fa fa-exclamation-triangle" style = "color:purple"> This page is for admin only!! </label>
+          <div class="info">
+            <input type="text" name = "userid" id ="login-username" required>
+            <span></span>
+            <label class = "fa fa-user"> Email Address </label>
+          </div>
+          <div class="info">
+            <input type="password" class="pass-key" name = "pswrd" id = "login-password" required>
+            <span class="show">SHOW</span>
+            <span></span>
+            <label class = "fa fa-lock"> Password </label>
+          </div>
+          <div class="remember">
+            <label><input type="checkbox" name=""> Remember me </label>
+          </div>
+          <div class="authenication">Forgot Password?</div>
+          <input type="submit" value="Login">
+          <div class="link_for_signup">
+            <!-- Not a member? <a href="signup.html">Signup</a> -->
+            New Admin? <a href = "importantContacts.html"> Contact to sign up! </a>
+          </div>
+        </form>
+      </div>
+      <script defer src="/src/js/material.min.js"></script>
+      <script>
+               const Visibility = document.querySelector('.pass-key');
+               const eye = document.querySelector('.show');
+               eye.addEventListener('click', function(){
+                if(Visibility.type === "password"){
+                  Visibility.type = "text";
+                  eye.textContent = "HIDE";
+                  eye.style.color = "#3498db";
+                }else{
+                  Visibility.type = "password";
+                  eye.textContent = "SHOW";
+                  eye.style.color = "#2691d9";
+                }
+               });
+
+            </script>
+        <script src = "src/js/app.js"></script>
+       <script src = "src/js/feed.js"></script>
+       <script type = "module" src = "src/js/firebase.js"></script>
+       <script type = "module" src = "src/js/auth.js"></script>
+    </body>
+  </html>
