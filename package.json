@@ -1,0 +1,25 @@
+{
+  "name": "pwa-mavsabroadjapan",
+  "version": "1.0.0",
+  "description": "A pwa for study abroad exchange program in Japan",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -c-1"
+  },
+  "keywords": [
+    "pwa",
+    "progressive",
+    "web",
+    "app",
+    "complete",
+    "tutorial"
+  ],
+  "author": "Pratik Mahato",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "0.9.0"
+  },
+  "dependencies": {
+    "firebase": "^9.1.1"
+  }
+}
